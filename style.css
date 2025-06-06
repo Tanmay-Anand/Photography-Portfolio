@@ -183,10 +183,10 @@ body {
     padding: 1rem;
     margin-bottom: 2rem;
     /* display: flex; */
-    align-items: center; /* Align label and select vertically */
+    align-items: center; 
     gap: 1rem;
-    font-family: 'Inter', sans-serif; /* Keep consistent font */
-    color: #333; /* Darker text for readability */
+    font-family: 'Inter', sans-serif; 
+    color: #333; 
 }
 
 .filter label {
