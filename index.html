@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AR</title>
-    <!-- Inter Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
-</style>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,8 +18,9 @@
                 </h1>
             </div>
             <div class="text-column-photographer-info-container">
+                <p id="photographer-by">by</p>
                 <p class="photographer-name">Tanmay Anand</p>
-                <p class="photographer-title">Photographer</p>
+                <!-- <p class="photographer-title">Photographer</p> -->
             </div>
         </div>
     <div class="right-images">
@@ -49,6 +45,18 @@
             <div class="shop">SHOP</div>
             <hr>
             <div class="collections">COLLECTIONS</div>
+            <div class="filter">
+                <label for="bran">Sort</label>
+                    <select name="branch" id="bran">
+                        <option value="All Albums">All Albums</option>
+                        <option value="Street Photography">Street Photography</option>
+                        <option value="Abstract Photography">Abstract Photography</option>
+                        <option value="Black & White">Black & White</option>
+                        <option value="Architecture">Architecture</option>
+                        <option value="Minimalist">Minimalist</option>
+                        <option value="Conceptual">Conceptual</option>
+                    </select>
+            </div>
             <div class="flex-options">
                 <figure class="c2img img1">
                     <img src="Image/bw3/downloadgram.org_339321595_1046621616311428_7716348491638945588_n.jpg" alt="A black and white image">
@@ -78,10 +86,7 @@
                     <img src="Image/void/gh.jpg" alt="A minimalist void image">
                     <figcaption>Empty Space</figcaption>
                 </figure>
-                <figure class="c2img img8">
-                    <img src="/Image/bw/downloadgram.org_446332408_772702101653020_2175946928350510996_n.heic" alt="Black and white nature shot">
-                    <figcaption>Abstraction</figcaption>
-                </figure>
+                
             </div>
         </div>
     </div>
