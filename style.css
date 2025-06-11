@@ -7,6 +7,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all 1s ease;
 }
 
 body {
@@ -20,7 +21,24 @@ body {
     padding: 6rem;
 }
 
-
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit:fill;
+  z-index: -1;
+}
+/* .video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4); 
+  z-index: -1;
+} */
 .main-container {
     width: 70vw;
     max-width: 100%;
@@ -30,10 +48,10 @@ body {
     margin-right: auto;
     display: flex;
     flex-direction: row; 
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-2xl equivalent */
+    box-shadow: 0 40px 45px -34px rgba(0, 0, 0, 0.1), 0 44px 64px -24px rgba(0, 0, 0, 0.05); /* shadow-2xl equivalent */
     border-radius: 0.75rem;
     /* overflow: hidden; */
-    background-color: #ffffff;
+    background-color: #F1F7F4 ;
     justify-content: space-between;
 }
 
@@ -66,6 +84,7 @@ body {
     text-align: right;
     margin-top: 10vh;
     line-height: 2.5rem;
+    
 }
 
 .text-almost {
@@ -74,6 +93,10 @@ body {
     font-weight: 300;
     
     display: block;
+    text-shadow: 0px 3px 0px #b2a98f,
+             0px 14px 10px rgba(0,0,0,0.15),
+             0px 24px 2px rgba(0,0,0,0.1),
+             0px 34px 30px rgba(0,0,0,0.1);
 }
 
 .text-real {
@@ -83,6 +106,10 @@ body {
     line-height: 1;
     display: flex;
     flex-direction: column;
+    text-shadow: 0px 3px 0px #b2a98f,
+             0px 14px 10px rgba(0,0,0,0.15),
+             0px 24px 2px rgba(0,0,0,0.1),
+             0px 34px 30px rgba(0,0,0,0.1);
     
     
 }
@@ -91,7 +118,7 @@ body {
     padding-left: 2px;
     color: #8b8b8b;
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     line-height: 2rem;
     font-family: "Cedarville Cursive", cursive;
 }
@@ -111,6 +138,7 @@ body {
 } */
 
 .right-images {
+    gap: 5px;
     display: flex;
     max-width: 100%;
     width: 234vw;
@@ -120,7 +148,6 @@ body {
     order: 1;
     margin: 12vh 10vh 10vh 0vh;
 }
-
 
 .image-column {
     width: 100%; 
@@ -135,13 +162,158 @@ body {
     width: 35%;
     order: 2;
     background-color: #f9fafb; 
+    position: relative; /* Added for absolute positioning of images */
+    overflow: hidden;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+/* .image-column-peacock
+{
+
+} */
+.slideshow-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute; /* Stack images on top of each other */
+    top: 0;
+    left: 0;
+    opacity: 0; /* Initially hide all images */
+    animation: imageFade 14s infinite ease-in; /* Total animation duration for 4 images (4s per image) */
+}
+/* Adjust animation delays for each image */
+.slideshow-image:nth-child(1) {
+    animation-delay: 0s;
 }
 
+.slideshow-image:nth-child(2) {
+    animation-delay: 4s; /* Shows after 2 seconds */
+}
+
+.slideshow-image:nth-child(3) {
+    animation-delay: 8s; /* Shows after 4 seconds */
+}
+.slideshow-image:nth-child(4) {     
+    animation-delay: 12s;
+}
+
+@keyframes imageFade {
+   0% {
+        opacity: 0;
+    }
+    /* For Image 1 (4s display out of 14s total) */
+    0.7% { /* (0.1s / 14s) * 100% - quick fade in */
+        opacity: 1;
+    }
+    28% { /* (4s / 14s) * 100% - Image 1 holds visible */
+        opacity: 1;
+    }
+    28.5% { /* (4.05s / 14s) * 100% - Image 1 starts fading out */
+        opacity: 0;
+    }
+    
+}
+.peacock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center;     /* Center content horizontally */
+    text-align: left;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Smooth fade-in/out transition */
+    z-index: 5; /* Ensure it's above the images but below any other higher elements if any */
+    cursor: pointer; /* Indicates it's interactive */
+}
+.overlay-text span
+{
+    color: goldenrod;
+    font-family: 'Times New Roman', Times, serif;
+}
+.peacock-overlay a
+{
+    padding-top: 20px;
+    text-decoration: none;
+    color: goldenrod;
+}
+.peacock-overlay a:hover
+{
+    padding-top: 20px;
+    text-decoration:underline;
+    transform: scale(1.2);
+    color: goldenrod;
+}
+
+.peacock-overlay .overlay-text {
+    display: flex;
+    flex-direction: column;
+    align-content: end;
+    gap: 20px;
+    color: white;
+    font-family: 'DM Sans', sans-serif; /* Or another suitable font from your imports */
+    font-size: 1.6rem; /* Adjust size as needed */
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 15px; /* Add some padding around the text */
+}
+
+/* NEW: Hover effect for the overlay */
+.image-column-peacock:hover .peacock-overlay {
+    opacity: 1; /* Show overlay on hover */
+    
+}
 .image-column-photographer {
     justify-content:flex-start;
     width: 65%;
     order: 3;
     background-color: #f3f4f6; 
+    position: relative; /* Add this for absolute positioning of the overlay */
+    overflow: hidden;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+/* NEW: Styles for the photographer image overlay */
+.photographer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center;     /* Center content horizontally */
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease; /* Smooth fade-in/out transition */
+    z-index: 2; /* Ensure it's above the image */
+    cursor: pointer;
+}
+
+.photographer-overlay .overlay-text {
+    color: white;
+    font-family: 'DM Sans', sans-serif; /* Or your preferred font */
+    font-size: 1.4rem; /* Adjust size as needed */
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 10px;
+}
+
+/* NEW: Hover effect for the photographer image overlay */
+.image-column-photographer:hover .photographer-overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+/* Optional: Darken/Scale image on hover (similar to before) */
+.image-column-photographer:hover .image-cover {
+    filter: brightness(0.8);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
 }
 
 .image-cover {
@@ -161,7 +333,8 @@ body {
     flex-direction: column;
     border-radius: 0.75rem;
     background-color: #fffcf7;
-    font-family: "DM Sans", sans-serif;
+    /* font-family: "DM Sans", sans-serif; */
+    font-family: 'Roboto', sans-serif;
 }
 
 .shop {
@@ -172,11 +345,16 @@ body {
     text-align: center;
 }
 
-.collections {
+#collections {
+    font-family: "DM Sans", sans-serif;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 400;
     padding: 10vh 0vh 10vh 0vh;
     text-align: center;
+    text-shadow: 0px 3px 0px #b2a98f,
+             0px 14px 10px rgba(0,0,0,0.15),
+             0px 24px 2px rgba(0,0,0,0.1),
+             0px 34px 30px rgba(0,0,0,0.1);
 }
 
 .filter {
@@ -187,22 +365,31 @@ body {
     gap: 1rem;
     font-family: 'Inter', sans-serif; 
     color: #333; 
+    
+
 }
 
 .filter label {
-    font-weight: 500; 
+    font-weight: 600; 
     font-size: 1.1rem;
+    color: rgba(0,0,0,0.6);
 }
 
 .filter select{
-    border-color: #000000;
-    border-width: 2px;
+    border-color: #585858;
+    border-radius: 9999px;
+    border-width: 1px;
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     color: #171a1b; 
     font-size: 1rem;
     cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
-
+.filter select option
+{
+    background-color: rgb(215, 218, 221);
+    
+}
 .work-space {
     margin-left: auto;
     margin-right: auto;
@@ -213,17 +400,30 @@ body {
 }
 
 .flex-options {
-    width: 50%;
-    display: flex;
-    flex-direction: column; 
-    justify-content: space-between; 
-    gap: 5rem; 
-    justify-content: center; 
-    padding: 1rem; 
+
+    max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            /* Creates a 2-column grid. It will wrap to a single column on smaller screens */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; /* The space between the images */
+    /* ........ */
+    /* width: 50%; */
+    /* display: flex; */
+    /* flex-direction: column;  */
+    /* justify-content: space-between;  */
+    /* gap: 5rem;  */
+    /* justify-content: center;  */
+    /* padding: 1rem;  */
 }
 
 
-.c2img {
+.c2img { 
+    position: relative; /* This is crucial for positioning the overlay */
+            overflow: hidden; /* Hides parts of the overlay that might go outside */
+            border-radius: 8px;
+            box-shadow: 0 14px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
     border: 5px solid #ffffff;
     /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
     color: #1A2A3A  ;
@@ -235,7 +435,78 @@ body {
     /* object-fit: cover;  */
     /* overflow: hidden;  */
 }
-.c2img:hover {
+.c2img:hover
+{
+    box-shadow: rgb(38, 57, 77) 0px 30px 50px -10px;
+}
+.c2img .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0); /* Start fully transparent */
+            transition: background 0.4s ease;
+        }
+
+        /* The text content (figcaption) */
+        .c2img .art-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            color: white;
+            box-sizing: border-box; /* Ensures padding is included in the width */
+            
+            /* Initial state: hidden */
+            opacity: 0;
+            transform: translateY(20px); /* Starts slightly lower */
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        
+        /* --- Hover Effects --- */
+        
+        .c2img:hover .overlay {
+            
+            background: rgba(0, 0, 0, 0.6); /* Fade in the black overlay */
+        }
+
+        .c2img:hover .art-info {
+            opacity: 1; /* Fade in the text */
+            transform: translateY(0); /* Move the text to its final position */
+        }
+        
+        .c2img:hover img {
+            transform: scale(1.05); /* Slightly zoom the image on hover */
+        }
+        .c2img:hover
+        {
+            transform: scale(1.05);
+        }
+        
+
+
+        /* --- Typography for the text overlay --- */
+        
+        .art-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .art-info .description {
+            font-size: 0.9rem;
+            margin: 0 0 1rem 0;
+            line-height: 1.4;
+        }
+
+        .art-info .price {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+/* .c2img:hover {
     transition: 0.5s;
     border: 5px solid #ffffff;
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
@@ -245,9 +516,9 @@ body {
     font-weight: 400;
     flex-shrink: 0; 
     flex-grow: 0; 
-    object-fit: cover; 
+    object-fit: cover;  */
     /* overflow: hidden;  */
-}
+/* } */
 
 
 .c2img img {
@@ -260,4 +531,136 @@ body {
 .img1 p{
     display: flex;
     flex-direction: row;
+}
+
+/* --- New CSS for full-width images --- */
+.flex-options .img1 {
+    grid-column: 1 / -1; /* This makes img1 span across all available columns */
+}
+
+.flex-options .img4 {
+    grid-column: 1 / -1; /* This makes img3 span across all available columns */
+}
+
+/* Optional: You might want to adjust the height for these larger images */
+.flex-options .img1 img,
+.flex-options .img4 img {
+    height: 400px; /* Adjust as needed, or use a percentage like 100% with a fixed height on the figure */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.see-all
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    cursor: pointer;
+    gap: 15px;
+}
+.see-all img{
+    width: 80px;
+    height: 80px;
+}
+.see-all img:hover {
+    width: 80px;
+    height: 80px;
+    transform: scaleX(1.3);
+}
+.see-all p
+{
+    font-family: 'Inter', sans-serif;
+    font-weight:700;
+    letter-spacing: 2px;
+}
+
+/* FOOTER */
+.site-footer {
+  background-color: #000000;
+  border: 1px solid white;
+  color: white;
+  padding: 40px 60px 20px 60px;
+  font-size: 14px;
+  width: 70vw;
+    max-width: 100%;
+    margin-top: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 5vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.75rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.footer-column {
+  min-width: 180px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1vw;
+}
+
+.footer-column h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.social-icons
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2vw;
+
+}
+.social-icons img
+{
+    width: 30px;
+    height: 30px;
+    
+}
+#icon1
+{
+    animation: jump 0.5s infinite alternate;
+}
+#icon2
+{
+    animation: jump 0.8s infinite alternate;
+}
+#icon3
+{
+    animation: jump 1s infinite alternate;
+}
+#icon4
+{
+    animation: jump 1.2s infinite alternate;
+}
+@keyframes jump {
+    0% {
+        transform: translateY(0); /* Start at the original vertical position */
+    }
+    50% {
+        transform: translateY(-3px); /* Move upwards (negative value moves it up) */
+        /* You can also add other properties here for more complex jumps, e.g., */
+        /* animation-timing-function: ease-out; for the upward motion */
+    }
+    100% {
+        transform: translateY(0); /* Return to the original vertical position */
+        /* You can also add, e.g., animation-timing-function: ease-in; for the downward motion */
+    }
 }

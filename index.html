@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <!-- background video -->
+    <video autoplay muted loop playsinline id="bg-video">
+  <source src="/videos/final-background-video3.mp4" type="video/mp4">
+</video>
+<!-- <div class="video-overlay"></div> -->
     <div class="main-container">
 
         <div class="text-column">
@@ -15,6 +19,7 @@
                 <h1 class="main-heading">
                     <span class="text-almost">ALMOST</span>
                     <span class="text-real">REAL</span>
+                    <hr>
                 </h1>
             </div>
             <div class="text-column-photographer-info-container">
@@ -24,19 +29,35 @@
             </div>
         </div>
     <div class="right-images">
+        
         <div class="image-column image-column-peacock">
-            <img src="Image/udaan/jpg/downloadgram.org_349519551_1259746431612220_7461250744020325516_n.jpg"
-                 alt="Peacock"
-                 class="image-cover"
-                 >
-        </div>
+            <img src="Image/udaan/jpg/downloadgram.org_349519551_1259746431612220_7461250744020325516_n.jpg" alt="Peacock" class="slideshow-image">
+  
+            
+            <img src="Image/udaan/jpg/3.jpg" alt="Image 3" class="slideshow-image">
+
+                 
+            <img src="Image/udaan/jpg/2.jpg" alt="Image 2" class="slideshow-image">
+    
+
+            <img src="Image/udaan/jpg/4.jpg"alt="Image 4" class="slideshow-image">
+    
+<div class="peacock-overlay">
+                <p class="overlay-text">New Photobook Dropped ~<br> <span>Birds of Rain!</span> </p>
+                <a href="#">Click to view</a>
+            </div>
+            </div>
 
         <div class="image-column image-column-photographer">
             <img src="Image/dp/3.jpg"
                  alt="Portrait of Tanmay Anand"
                  class="image-cover"
                  >
+                 <div class="photographer-overlay">
+        <p class="overlay-text">About me&#x2197;</p>
+    </div>
         </div>
+        
     </div>
     </div>
 
@@ -44,9 +65,9 @@
         <div class="work-space">
             <div class="shop">SHOP</div>
             <hr>
-            <div class="collections">COLLECTIONS</div>
+            <div id="collections">COLLECTIONS</div>
             <div class="filter">
-                <label for="bran">Sort</label>
+                <label for="bran">Sort: </label>
                     <select name="branch" id="bran">
                         <option value="All Albums">All Albums</option>
                         <option value="Street Photography">Street Photography</option>
@@ -60,35 +81,94 @@
             <div class="flex-options">
                 <figure class="c2img img1">
                     <img src="Image/bw3/downloadgram.org_339321595_1046621616311428_7716348491638945588_n.jpg" alt="A black and white image">
-                    <figcaption>Urban Contrast</figcaption>
+                    <div class="overlay"></div>
+            <figcaption class="art-info">
+                <h3>Urban Contrast</h3>
+                <p class="description">A BLACK & WHITE collection of the urban landscape</p>
+                <p class="price">~ $ amount.00</p>
+            </figcaption>
                 </figure>
                 <figure class="c2img img3">
                     <img src="Image/sf1/cropped.jpg" alt="Street photography shot">
-                    <figcaption>Blur</figcaption>
-                </figure>
-                <figure class="c2img img4">
-                    <img src="Image/cycle/crop2.jpg" alt="Image of a bicycle">
-                    <figcaption>Contrast</figcaption>
+                    <div class="overlay"></div>
+            <figcaption class="art-info">
+                <h3>City in Motion</h3>
+                <p class="description">Capturing the busy urban life through motion.</p>
+                <p class="price">~ $ amount.00</p>
+            </figcaption>
                 </figure>
                 <figure class="c2img img6">
                     <img src="Image/couple/downloadgram.org_332243859_928774195226663_8995986959936370997_n (1).jpg" alt="A couple in a romantic setting">
-                    <figcaption>Love in Frame</figcaption>
+                    <div class="overlay"></div>
+            <figcaption class="art-info">
+                <h3>14th February</h3>
+                <p class="description">Different Couples on 14th</p>
+                <p class="price">~ $ amount.00</p>
+            </figcaption>
                 </figure>
+                    <figure class="c2img img5">
+                    <img src="Image/AbstractConcrete/downloadgram.org_452937345_860190019295861_1738126873953479953_n.heic" alt="Abstract concrete texture">
+                    <div class="overlay"></div>
+            <figcaption class="art-info">
+                <h3>Concrete / <br> Abstract</h3>
+                <p class="description">Collection of images clicked on Manikarnika Ghat</p>
+                <p class="price">~ $ amount.00</p>
+            </figcaption>
+                </figure>
+                <figure class="c2img img4">
+                    <img src="Image/cycle/crop2.jpg" alt="Image of a bicycle">
+                    <div class="overlay"></div>
+            <figcaption class="art-info">
+                <h3>Solitary Cycle</h3>
+                <p class="description">Collection of vibrant images starring kid in a bicycle</p>
+                <p class="price">~ $ amount.00</p>
+            </figcaption>
+                </figure>
+                
                 <figure class="c2img img2">
                     <img src="Image/bw2/downloadgram.org_438874483_333867543038849_2693212899413910357_n.heic" alt="Another black and white scene">
-                    <figcaption>Highway</figcaption>
+                    <div class="overlay"></div>
+            <figcaption class="art-info">
+                <h3>Highways 2024</h3>
+                <p class="description">Collection of roaside scenes from Delhi to Nainital</p>
+                <p class="price">~ $ amount.00</p>
+            </figcaption>
                 </figure>
                 <figure class="c2img img7">
                     <img src="Image/void/gh.jpg" alt="A minimalist void image">
-                    <figcaption>Empty Space</figcaption>
+                    <div class="overlay"></div>
+            <figcaption class="art-info">
+                <h3>VOID</h3>
+                <p class="description">A planned photoshoot showcasing INTERNAL VOID</p>
+                <p class="price">~ $ amount.00</p>
+            </figcaption>
                 </figure>
-                <figure class="c2img img5">
-                    <img src="Image/AbstractConcrete/downloadgram.org_452937345_860190019295861_1738126873953479953_n.heic" alt="Abstract concrete texture">
-                    <figcaption>Concrete Abstraction</figcaption>
-                </figure>
+            
+            <div class="see-all">
+                <p>SEE ALL</p>
+                <img src="Icon/Animation - 1749649604839.gif" alt="Animated-gif">
+            </div>
                 
             </div>
         </div>
     </div>
+    <footer class="site-footer">
+  <div class="footer-container">
+      <div class="footer-column">
+        
+        <div class="social-icons">
+          <a href="#" id="icon1"><img src="Icon/pinterest.png" alt="Pinterest"></a>
+          <a href="https://www.instagram.com/tanmayanand7/" target="_blank"id="icon2"><img src="Icon/instagram.png" alt="Instagram"></a>
+          <a href="#" id="icon3"><img src="Icon/youtube.png" alt="YouTube"></a>
+          <a href="#" id="icon4"><img src="Icon/photoshop.png" alt="Twitter"></a>
+        </div>
+      </div>
+    </div>
+
+    
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
